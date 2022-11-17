@@ -1,0 +1,15 @@
+﻿@if (_processing == true)
+{
+    return;
+}
+@if (_lease is null)
+{
+    <div>There is no current lease to view</div>
+    return;
+}
+<div>
+    @_lease.RentAmount
+</div>
+<div>
+    @Dollars
+</div>

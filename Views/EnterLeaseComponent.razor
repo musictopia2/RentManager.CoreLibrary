@@ -1,0 +1,22 @@
+﻿@if (DataContext.CanStart == false)
+{
+    return;
+}
+@if (DataContext.Visible == false)
+{
+    <div>
+        The new lease has been processed.  Should not have to enter another one for a long time.
+    </div>
+    return;
+}
+<DataEntryGridComponent>
+    @if (DataContext.IsFirstLease)
+    {
+        <DataEntryItem Header="Enter Date">
+            <DateComponent FocusFirst="true" @bind-Value="DataContext.FirstStartDate" />
+        </DataEntryItem>
+    }
+    <DataEntryItem Header="Rent Amount">
+        <NumberComponent FocusFirst="AmountFirst" @bind-Value="DataContext.RentAmount" OnEnterPressed="ProcessAsync" />
+    </DataEntryItem>
+</DataEntryGridComponent>
