@@ -19,4 +19,15 @@
     <DataEntryItem Header="Rent Amount">
         <NumberComponent FocusFirst="AmountFirst" @bind-Value="DataContext.RentAmount" OnEnterPressed="ProcessAsync" />
     </DataEntryItem>
+    
 </DataEntryGridComponent>
+<!-- Show the lease term buttons only if there is more than one term available -->
+@if (DataContext.AvailableLeaseTerms.Count > 1)
+{
+    foreach (var term in DataContext.AvailableLeaseTerms)
+    {
+        <PrimaryButton OnClick="() => DataContext.SelectLeaseTermAsync(term)">
+            @term Months
+        </PrimaryButton>
+    }
+}
