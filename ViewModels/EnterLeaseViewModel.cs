@@ -59,6 +59,7 @@ public class EnterLeaseViewModel(ILeaseStorage storage,
             startDate = GetNewStartDate!.Value;
         }
         DateOnly endDate = startDate.AddMonths(LeaseTerm);
+        endDate = endDate.AddDays(-1); //forgot this part.
         LeaseModel newLease = new()
         {
             StartDate = startDate,
