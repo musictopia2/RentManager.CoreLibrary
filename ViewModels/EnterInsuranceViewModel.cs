@@ -1,7 +1,7 @@
 ﻿namespace RentManager.CoreLibrary.ViewModels;
 public class EnterInsuranceViewModel(IInsuranceStorage storage) : IEnterInsuranceViewModel
 {
-    public bool Visible { get; private set; }
+    public bool Visible { get; private set; } = true;
     public decimal InsuranceAmount { get; set; }
     async Task IEnterInsuranceViewModel.ProcessAsync()
     {
