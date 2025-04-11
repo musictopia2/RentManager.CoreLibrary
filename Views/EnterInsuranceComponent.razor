@@ -1,0 +1,13 @@
+﻿@if (DataContext.Visible == false)
+{
+    <div>
+        The new insurance terms has been processed.  Should not have to enter another one for a long time.
+    </div>
+    return;
+}
+<DataEntryGridComponent>
+    
+    <DataEntryItem Header="Insurance Amount">
+        <NumberComponent @bind-Value="DataContext.InsuranceAmount" OnEnterPressed="ProcessAsync" />
+    </DataEntryItem>
+</DataEntryGridComponent>
