@@ -11,5 +11,5 @@ public partial class ViewLeaseComponent
         _lease = await DataContext.GetCurrentLeaseAsync();
         _processing = false;
     }
-    private string Dollars => _lease!.RentAmount.ConvertToDecimalWords();
+    private string Dollars => _lease!.RentAmount.DecimalWords;
 }
